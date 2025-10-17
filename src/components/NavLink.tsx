@@ -1,4 +1,5 @@
-import { Link } from 'react-router';
+import { Link as Routerlink } from 'react-router';
+
 import {
     NavigationMenuItem,
     NavigationMenuLink,
@@ -8,18 +9,16 @@ import {
 interface NavLinkProps {
     name: string;
     path: string;
-    isActive: boolean;
 }
 
-export const NavLink = ({ name, path, isActive }: NavLinkProps) => {
+export const NavLink = ({ name, path }: NavLinkProps) => {
     return (
         <NavigationMenuItem>
             <NavigationMenuLink
                 asChild
-                active={isActive}
                 className={navigationMenuTriggerStyle()}
             >
-                <Link to={path}>{name}</Link>
+                <Routerlink to={path}>{name}</Routerlink>
             </NavigationMenuLink>
         </NavigationMenuItem>
     );

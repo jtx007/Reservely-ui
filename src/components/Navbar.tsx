@@ -10,8 +10,15 @@ interface NavBarProps {
 
 export const NavBar = ({ items }: NavBarProps) => {
     return (
-        <NavigationMenu className=' max-w-full justify-end'>
-            <NavigationMenuList>{items}</NavigationMenuList>
-        </NavigationMenu>
+        <div className='flex p-[1rem] justify-around border-2 border-b-indigo-100'>
+            <h1 className=' scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance'>
+                Reservely
+            </h1>
+            <NavigationMenu>
+                <NavigationMenuList className='flex gap-4'>
+                    {items}
+                </NavigationMenuList>
+            </NavigationMenu>
+        </div>
     );
 };
