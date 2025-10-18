@@ -4,9 +4,11 @@ import './styles/index.css';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import App from './routes/App.tsx';
-import { ThemeProvider } from './components/theme-provider.tsx';
+import { ThemeProvider } from './components/ui/theme-provider.tsx';
 import Login from './routes/Login.tsx';
-import Layout from './routes/Layout.tsx';
+import { Layout, FormColLayout } from './layouts';
+import { SignUp } from './routes/SignUp.tsx';
+
 const rootElement = document.getElementById('root')!;
 if (!rootElement.innerHTML) {
     const root = ReactDOM.createRoot(rootElement);
@@ -19,10 +21,18 @@ if (!rootElement.innerHTML) {
                         storageKey='vite-ui-theme'
                     >
                         <Routes>
-                            <Route element={<Layout />}>
-                                <Route path='/' element={<App />} />
-                                <Route path='/login' element={<Login />} />
-                            </Route>
+                            <>
+                                <Route element={<Layout />}>
+                                    <Route path='/' element={<App />} />
+                                </Route>
+                                <Route element={<FormColLayout />}>
+                                    <Route path='/login' element={<Login />} />
+                                    <Route
+                                        path='/signup'
+                                        element={<SignUp />}
+                                    />
+                                </Route>
+                            </>
                         </Routes>
                     </ThemeProvider>
                 </BrowserRouter>

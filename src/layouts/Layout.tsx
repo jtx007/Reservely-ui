@@ -1,6 +1,6 @@
-import { ModeToggle, NavBar, NavLink } from '@/components';
+import { NavBar, NavLink, ModeToggle } from '@/components';
 import { Outlet } from 'react-router';
-const Layout = () => {
+export const Layout = () => {
     const items = [
         { name: 'Home', path: '/' },
         { name: 'Login', path: '/login' },
@@ -20,5 +20,3 @@ const Layout = () => {
         </>
     );
 };
-
-export default Layout;
