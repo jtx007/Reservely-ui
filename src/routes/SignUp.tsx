@@ -1,23 +1,35 @@
-import { counter, picnic, queue, table } from '@/assets';
+import { queue, waiter } from '@/assets';
 import { FormCard } from '@/components';
 import { signUpFormSchema } from '@/lib/formSchemas';
+import { useEffect } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { createUserMutation } from '@/services/user/queries';
 export const SignUp = () => {
-    return (
-        <>
-            {' '}
-            <div className='flex flex-col justify-center-safe  h-full w-full'>
-                <img className='h-1/4' src={picnic} alt='picnic' />
-                <img className='h-1/4' src={queue} alt='queue' />
-                <img className='h-1/4' src={table} alt='table' />
-                <img className='h-1/4' src={counter} alt='counter' />
-            </div>
-            <div className='flex justify-center-safe items-center-safe h-full w-full '>
-                <FormCard
-                    title='Sign Up'
-                    schema={signUpFormSchema}
-                    description='Sign Up to book restaurants'
-                />
-            </div>
-        </>
-    );
+  const footerLink = { url: '/login', text: 'Already a user? Login Here' };
+  useEffect(() => {
+    const imagesToPrefetch = [queue, waiter]; // Local image imports
+    imagesToPrefetch.forEach((src) => {
+      const img = new Image();
+      img.src = src; // This will prefetch the image
+    });
+  });
+  const { mutateAsync } = useMutation({ ...createUserMutation });
+
+  return (
+    <div className='flex h-full w-full'>
+      <div className='flex flex-col justify-center-safe items-center-safe w-1/2'>
+        <img className='h-1/2 ' src={queue} alt='queue' />
+        <img className='h-1/2' src={waiter} alt='waiter' />
+      </div>
+      <div className='flex justify-center-safe items-center-safe w-1/2'>
+        <FormCard
+          title='Sign Up'
+          schema={signUpFormSchema}
+          description='Sign Up to book restaurants'
+          footerUrl={footerLink}
+          mutateFn={mutateAsync}
+        />
+      </div>
+    </div>
+  );
 };
