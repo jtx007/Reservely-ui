@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import App from './routes/App.tsx';
 import { ThemeProvider } from './components/ui/theme-provider.tsx';
 import Login from './routes/Login.tsx';
-import { Layout, FormColLayout } from './layouts';
+import { Layout, FormColLayout } from './layouts/index.tsx';
 import { SignUp } from './routes/SignUp.tsx';
 import { Toaster } from 'sonner';
 
