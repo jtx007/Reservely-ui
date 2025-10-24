@@ -4635,6 +4635,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-static@npm:^0.547.0":
+  version: 0.547.0
+  resolution: "lucide-static@npm:0.547.0"
+  checksum: 10c0/e9e662e1aea6e1c8e5158a13f6d9c5661abd80cea2c9db555cc0d3df81eff8de5ccf8c3379717d5e0f5f1a48e52eaf07e3963ef0e67e6881324f8b17f3a0676c
+  languageName: node
+  linkType: hard
+
 "magic-string@npm:^0.30.19":
   version: 0.30.19
   resolution: "magic-string@npm:0.30.19"
@@ -5595,6 +5602,7 @@ __metadata:
     init: "npm:^0.1.2"
     lint-staged: "npm:^16.2.3"
     lucide-react: "npm:^0.545.0"
+    lucide-static: "npm:^0.547.0"
     next-themes: "npm:^0.4.6"
     prettier: "npm:^3.6.2"
     prettier-plugin-tailwindcss: "npm:^0.6.14"

@@ -8,6 +8,7 @@ export const Layout = () => {
   const { isLoggedIn, currentUser, setTokenLogout } = useAuth();
   const items = [
     { name: 'Home', path: '/' },
+    { name: 'Restaurants', path: '/restaurants' },
     isLoggedIn && currentUser
       ? { name: 'Profile', path: `/profile/${currentUser?.username}` }
       : { name: 'Login', path: '/login' },

@@ -74,12 +74,8 @@ export const userService = {
     return data;
   },
   deleteUser: async (id: number) => {
-    const response = await fetch(`${API_URL}/users`, {
+    const response = await fetch(`${API_URL}/users/${id}`, {
       method: 'DELETE',
-      body: JSON.stringify(id),
-      headers: {
-        'Content-Type': 'application/json',
-      },
     });
     if (!response.ok) {
       const errorData = await response.json();
