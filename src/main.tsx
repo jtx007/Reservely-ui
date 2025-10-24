@@ -13,6 +13,8 @@ import { SignUp } from './routes/SignUp.tsx';
 import { Toaster } from 'sonner';
 import { AuthProvider } from './context';
 import { Profile } from './routes/Profile.tsx';
+import { Restaurants } from './routes/RestaurantView.tsx';
+import { RestaurantView } from './routes/Restaurants.tsx';
 const rootElement = document.getElementById('root')!;
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
@@ -28,6 +30,11 @@ if (!rootElement.innerHTML) {
                   <Route element={<Layout />}>
                     <Route path='/' element={<App />} />
                     <Route path='/profile/:currentUser' element={<Profile />} />
+                    <Route path='/restaurants' element={<Restaurants />} />
+                    <Route
+                      path='/restaurants/:restaurantId'
+                      element={<RestaurantView />}
+                    />
                   </Route>
                   <Route element={<FormColLayout />}>
                     <Route path='/login' element={<Login />} />
