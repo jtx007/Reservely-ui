@@ -3,9 +3,11 @@ import { FormCard } from '@/components';
 import { signUpFormSchema } from '@/lib/formSchemas';
 import { useEffect } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { createUserMutation } from '@/services/user/queries';
+import { createUserMutation } from '@/services/user';
+import { useNavigate } from 'react-router';
 export const SignUp = () => {
   const footerLink = { url: '/login', text: 'Already a user? Login Here' };
+  const navigate = useNavigate();
   useEffect(() => {
     const imagesToPrefetch = [queue, waiter]; // Local image imports
     imagesToPrefetch.forEach((src) => {
@@ -13,7 +15,10 @@ export const SignUp = () => {
       img.src = src; // This will prefetch the image
     });
   });
-  const { mutateAsync } = useMutation({ ...createUserMutation });
+  const { mutateAsync, isPending, isError } = useMutation({
+    ...createUserMutation,
+    onSuccess: () => navigate('/login'),
+  });
 
   return (
     <div className='flex h-full w-full'>
@@ -28,6 +33,8 @@ export const SignUp = () => {
           description='Sign Up to book restaurants'
           footerUrl={footerLink}
           mutateFn={mutateAsync}
+          isPending={isPending}
+          isError={isError}
         />
       </div>
     </div>
