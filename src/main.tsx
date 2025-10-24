@@ -11,30 +11,34 @@ import Login from './routes/Login.tsx';
 import { Layout, FormColLayout } from './layouts/index.tsx';
 import { SignUp } from './routes/SignUp.tsx';
 import { Toaster } from 'sonner';
-
+import { AuthProvider } from './context';
+import { Profile } from './routes/Profile.tsx';
 const rootElement = document.getElementById('root')!;
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
       <QueryClientProvider client={new QueryClient()}>
-        <TanStackDevtools plugins={[FormDevtoolsPlugin()]} />
-        <BrowserRouter>
-          <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-            <Routes>
-              <>
-                <Route element={<Layout />}>
-                  <Route path='/' element={<App />} />
-                </Route>
-                <Route element={<FormColLayout />}>
-                  <Route path='/login' element={<Login />} />
-                  <Route path='/signup' element={<SignUp />} />
-                </Route>
-              </>
-            </Routes>
-            <Toaster />
-          </ThemeProvider>
-        </BrowserRouter>
+        <AuthProvider>
+          <TanStackDevtools plugins={[FormDevtoolsPlugin()]} />
+          <BrowserRouter>
+            <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+              <Routes>
+                <>
+                  <Route element={<Layout />}>
+                    <Route path='/' element={<App />} />
+                    <Route path='/profile/:currentUser' element={<Profile />} />
+                  </Route>
+                  <Route element={<FormColLayout />}>
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/signup' element={<SignUp />} />
+                  </Route>
+                </>
+              </Routes>
+              <Toaster />
+            </ThemeProvider>
+          </BrowserRouter>
+        </AuthProvider>
       </QueryClientProvider>
     </StrictMode>,
   );
