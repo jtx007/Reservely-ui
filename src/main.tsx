@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { TanStackDevtools } from '@tanstack/react-devtools';
 import { FormDevtoolsPlugin } from '@tanstack/react-form-devtools';
-import './styles/index.css';
+import './index.css';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import App from './routes/App.tsx';
