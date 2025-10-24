@@ -1,8 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useState, createContext, useContext, useEffect } from 'react';
-import { getCurrentUserQuery } from '@/services/user';
+import { getCurrentUserQuery } from '@/services';
 import { useQuery } from '@tanstack/react-query';
-import type { UserResponse } from '@/services/user/handlers';
+import type { UserResponse } from '@/types';
 interface AuthContextType {
   authToken: string | null;
   isLoggedIn: boolean;

@@ -3,7 +3,7 @@ import { FormCard } from '@/components';
 import { signUpFormSchema } from '@/lib/formSchemas';
 import { useEffect } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { createUserMutation } from '@/services/user';
+import { createUserMutation } from '@/services';
 import { useNavigate } from 'react-router';
 export const SignUp = () => {
   const footerLink = { url: '/login', text: 'Already a user? Login Here' };

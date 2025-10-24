@@ -1,27 +1,10 @@
-export interface UserCreate extends UserLogin {
-  email: string;
-}
-
-export interface UserLogin {
-  username: string;
-  password: string;
-}
-
-export interface UserUpdate {
-  username?: string;
-  email?: string;
-  password?: string;
-}
-
-interface UserLoginResponse {
-  access_token: string;
-  token_type: 'bearer';
-}
-export interface UserResponse {
-  username: string;
-  email: string;
-  id: number;
-}
+import type {
+  UserCreate,
+  UserLogin,
+  UserLoginResponse,
+  UserResponse,
+  UserUpdate,
+} from '@/types';
 
 const API_URL = import.meta.env.VITE_BASE_API_URL;
 export const userService = {

@@ -3,7 +3,7 @@ import {
   createUserMutation,
   getCurrentUserQuery,
   editUserMutation,
-} from './queries';
+} from './user/queries';
 
 export {
   loginUserMutation,

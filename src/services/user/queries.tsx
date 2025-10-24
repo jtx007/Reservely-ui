@@ -1,5 +1,5 @@
 import { userService } from './handlers';
-import type { UserCreate, UserLogin, UserUpdate } from './handlers';
+import type { UserCreate, UserUpdate, UserLogin } from '@/types';
 
 export const createUserMutation = {
   mutationKey: ['create-user'],
