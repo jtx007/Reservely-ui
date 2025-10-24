@@ -14,6 +14,7 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Link } from 'react-router';
 import type { UseMutateAsyncFunction } from '@tanstack/react-query';
+import { Spinner } from './ui/spinner';
 interface FooterUrl {
   url: string;
   text: string;
@@ -23,7 +24,9 @@ interface FormCardPropTypes<TData = unknown, TVariables = unknown> {
   description: string;
   schema: ZodObject<z.ZodRawShape>;
   footerUrl: FooterUrl;
-  mutateFn?: UseMutateAsyncFunction<TData, Error, TVariables, unknown>;
+  mutateFn: UseMutateAsyncFunction<TData, Error, TVariables, unknown>;
+  isPending: boolean;
+  isError: boolean;
 }
 
 export const FormCard = <TData = unknown, TVariables = unknown>({
@@ -32,6 +35,8 @@ export const FormCard = <TData = unknown, TVariables = unknown>({
   schema,
   footerUrl,
   mutateFn,
+  isPending,
+  isError,
 }: FormCardPropTypes<TData, TVariables>) => {
   const fields = Object.keys(schema.shape);
   const defaultValues = Object.fromEntries(fields.map((field) => [field, '']));
@@ -93,11 +98,23 @@ export const FormCard = <TData = unknown, TVariables = unknown>({
             ))}
           </FieldGroup>
         </form>
+        {isError && 'Error creating user'}
       </CardContent>
       <CardFooter>
         <Field orientation='horizontal'>
-          <Button className='bg-amber-500' type='submit' form={`${title}-form`}>
-            Submit
+          <Button
+            disabled={isPending}
+            className='bg-amber-500'
+            type='submit'
+            form={`${title}-form`}
+          >
+            {isPending ? (
+              <>
+                <Spinner /> 'Submitting'
+              </>
+            ) : (
+              'Submit'
+            )}
           </Button>
         </Field>
         <Field>
