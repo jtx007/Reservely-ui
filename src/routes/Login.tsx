@@ -4,7 +4,7 @@ import { loginFormSchema } from '@/lib/formSchemas';
 import { useMutation } from '@tanstack/react-query';
 import { bar, date } from '../assets';
 import { useNavigate } from 'react-router';
-import { loginUserMutation } from '@/services/user';
+import { loginUserMutation } from '@/services';
 import { useAuth } from '@/context';
 
 function Login() {
