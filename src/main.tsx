@@ -15,6 +15,7 @@ import { AuthProvider } from './context';
 import { Profile } from './routes/Profile.tsx';
 import { RestaurantView } from './routes/RestaurantView.tsx';
 import { Restaurants } from './routes/Restaurants.tsx';
+import { AddRestaurant } from './routes/AddRestaurant.tsx';
 const rootElement = document.getElementById('root')!;
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
@@ -31,6 +32,10 @@ if (!rootElement.innerHTML) {
                     <Route path='/' element={<App />} />
                     <Route path='/profile/:currentUser' element={<Profile />} />
                     <Route path='/restaurants' element={<Restaurants />} />
+                    <Route
+                      path='/restaurants/add'
+                      element={<AddRestaurant />}
+                    />
                     <Route
                       path='/restaurants/:restaurantId'
                       element={<RestaurantView />}
