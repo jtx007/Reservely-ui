@@ -13,8 +13,8 @@ import { SignUp } from './routes/SignUp.tsx';
 import { Toaster } from 'sonner';
 import { AuthProvider } from './context';
 import { Profile } from './routes/Profile.tsx';
-import { Restaurants } from './routes/RestaurantView.tsx';
-import { RestaurantView } from './routes/Restaurants.tsx';
+import { RestaurantView } from './routes/RestaurantView.tsx';
+import { Restaurants } from './routes/Restaurants.tsx';
 const rootElement = document.getElementById('root')!;
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
