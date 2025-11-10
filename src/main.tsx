@@ -1,7 +1,6 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import { TanStackDevtools } from '@tanstack/react-devtools';
-import { FormDevtoolsPlugin } from '@tanstack/react-form-devtools';
+
 import './styles/index.css';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router';
@@ -23,7 +22,6 @@ if (!rootElement.innerHTML) {
     <StrictMode>
       <QueryClientProvider client={new QueryClient()}>
         <AuthProvider>
-          <TanStackDevtools plugins={[FormDevtoolsPlugin()]} />
           <BrowserRouter>
             <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
               <Routes>
