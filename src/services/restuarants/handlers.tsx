@@ -31,6 +31,9 @@ export const restaurantService = {
     const response = await fetch(`${API_URL}/restaurants`, {
       method: 'POST',
       body: JSON.stringify(restaurant),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     if (!response.ok) {
       const errorData = await response.json();
