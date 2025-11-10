@@ -16,7 +16,7 @@ export const restaurantService = {
     const data: RestaurantResponse[] = await response.json();
     return data;
   },
-  getRestaurant: async (restaurantId: number): Promise<RestaurantResponse> => {
+  getRestaurant: async (restaurantId: string): Promise<RestaurantResponse> => {
     const response = await fetch(`${API_URL}/restaurants/${restaurantId}`);
     if (!response.ok) {
       const errorData = await response.json();

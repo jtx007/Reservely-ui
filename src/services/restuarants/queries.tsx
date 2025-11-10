@@ -22,14 +22,16 @@ export const getRestaurantsQuery = () => {
   };
 };
 
-export const getRestaurantQuery = (restaurantId: number) => {
+export const getRestaurantQuery = (restaurantId?: string) => {
   return {
-    queryKey: [`get-restaurant-${restaurantId}`],
-    queryFn: (restaurantId: number) =>
-      restaurantService.getRestaurant(restaurantId),
+    queryKey: ['restaurant', restaurantId],
+    queryFn: () => {
+      if (!restaurantId) throw new Error('restaurantId is required');
+      return restaurantService.getRestaurant(restaurantId);
+    },
+    enabled: !!restaurantId,
   };
 };
-
 export const deleteRestaurantMutation = {
   mutationKey: ['delete-restaurant'],
   mutationFn: (restaurantId: number) =>
