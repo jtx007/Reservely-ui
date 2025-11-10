@@ -1,6 +1,6 @@
 export interface RestaurantCreate {
   name: string;
-  desc: string;
+  description: string;
   open: number;
   close: number;
 }
@@ -11,7 +11,7 @@ export interface RestaurantResponse extends RestaurantCreate {
 
 export interface RestaurantUpdate {
   name?: string;
-  desc?: string;
+  description?: string;
   open?: number;
   close?: number;
 }
